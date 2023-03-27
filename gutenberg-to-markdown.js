@@ -2,8 +2,8 @@
 
 import puppeteer from "puppeteer";
 import TurndownService from "turndown";
-var turndownService = new TurndownService()
 
+const turndownService = new TurndownService()
 
 if (process.argv.length < 3) {
     console.log("Please provide a url as first argument");  
@@ -35,10 +35,15 @@ const getMarkdown = async (url) => {
         return window.turndown(document.body.innerHTML);
     });
 
-    console.log(markdown);
+    
 
     await browser.close();
 
+    return markdown;
+
+
+
 };
 
-getMarkdown(url)
+let markdown = await getMarkdown(url)
+console.log(markdown)
