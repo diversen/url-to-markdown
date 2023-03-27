@@ -1,14 +1,12 @@
-# gutenberg-format-convert
+# url-to-markdown
 
-Read a html file on gutenberg and convert it to markdown. 
-
-Or. Any online html file. 
+Read an online html file and convert it to markdown. 
 
 ## Install
 
 ```bash
-git clone https://github.com/diversen/gutenberg-format-convert
-cd gutenberg-format-convert
+git clone https://github.com/diversen/url-to-markdown.git
+cd url-to-markdown
 npm install
 ```
 
@@ -20,9 +18,9 @@ npm install
 more devine_comedy.md
 ```
 
-The code is just a single script [gutenberg-to-markdown.js](gutenberg-to-markdown.js). 
+The code is just a single script [url-to-markdown.js](url-to-markdown.js). 
 
-`Puppeteer` is used instead for the scraping. `Turndown` is used for converting html to markdown.
+`Puppeteer` is used for the scraping. `Turndown` is used for converting html to markdown.
 
 ## License
 
