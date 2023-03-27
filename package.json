@@ -1,14 +1,14 @@
 {
-  "name": "gutenberg-format-convert",
+  "name": "url-to-markdown",
   "version": "1.0.0",
-  "description": "book.html contains a Gutenberg book in HTML format. index.html reads that book and converts it to markdown.",
+  "description": "Convert online html document to markdown.",
   "main": "convert.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "type": "module",
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "puppeteer": "^19.8.0",
     "turndown": "^7.1.2"
