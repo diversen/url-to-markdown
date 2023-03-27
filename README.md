@@ -22,8 +22,7 @@ more devine_comedy.md
 
 The code is just a single script [gutenberg-to-markdown.js](gutenberg-to-markdown.js). 
 
-`Puppeteer` is used instead of e.g. jsdom and cheerio because puppeteer is faster and have a wider support for 
-css selectors and html. 
+`Puppeteer` is used instead for the scraping. 
 
 ## License
 
