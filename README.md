@@ -16,7 +16,7 @@ npm install
 
 ```bash
 # fetching The Divine Comedy by Dante Alighieri
-node ./gutenberg-to-markdown.js https://www.gutenberg.org/files/1001/1001-h/1001-h.htm#CantoI.I > example/devine_comedy.md
+node ./gutenberg-to-markdown.js https://www.gutenberg.org/files/1001/1001-h/1001-h.htm#CantoI.I > devine_comedy.md
 more devine_comedy.md
 ```
 
