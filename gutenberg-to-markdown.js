@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 
 import puppeteer from "puppeteer";
+import TurndownService from "turndown";
+var turndownService = new TurndownService()
 
 
 if (process.argv.length < 3) {
@@ -23,32 +25,17 @@ const getMarkdown = async (url) => {
         waitUntil: "domcontentloaded",
     });
 
-    const book = await page.evaluate(() => {
 
-        let finalText = '';
-        let title = "# " + document.querySelector('h1').textContent + "\n\n";
-        finalText += title;
+    // Export function
+    await page.exposeFunction('turndown', (content) => {
+        return turndownService.turndown(content);
+    });    
 
-        let chapters = document.querySelectorAll('.chapter')
-        for (let chapter of chapters) {
-
-            finalText += "## " + chapter.innerText + "\n\n"
-            if (chapter.id) {
-                let paragraphsSelector = `#${chapter.id} ~ p`;
-                let paragraphs = document.querySelectorAll(paragraphsSelector);
-
-                // Iterate all paragraphs and extract text
-                for (let paragraph of paragraphs) {
-                    if (paragraph.innerText == "") continue;
-                    finalText += paragraph.innerText + "\n\n"
-                }
-            }
-        }
-
-        return finalText;
+    const markdown = await page.evaluate(() => {
+        return window.turndown(document.body.innerHTML);
     });
 
-    console.log(book);
+    console.log(markdown);
 
     await browser.close();
 
