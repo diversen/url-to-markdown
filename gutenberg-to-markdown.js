@@ -6,8 +6,8 @@ import TurndownService from "turndown";
 const turndownService = new TurndownService()
 
 if (process.argv.length < 3) {
-    console.log("Please provide a url as first argument");  
-    process.exit(1); 
+    console.log("Please provide a url as first argument");
+    process.exit(1);
 }
 
 const url = process.argv[2];
@@ -25,23 +25,17 @@ const getMarkdown = async (url) => {
         waitUntil: "domcontentloaded",
     });
 
-
-    // Export function
     await page.exposeFunction('turndown', (content) => {
         return turndownService.turndown(content);
-    });    
+    });
 
     const markdown = await page.evaluate(() => {
         return window.turndown(document.body.innerHTML);
     });
 
-    
-
     await browser.close();
 
     return markdown;
-
-
 
 };
 
