@@ -3,7 +3,9 @@
 import puppeteer from "puppeteer";
 import TurndownService from "turndown";
 
-const turndownService = new TurndownService()
+const turndownService = new TurndownService({
+    headingStyle: "atx",
+})
 
 if (process.argv.length < 3) {
     console.log("Please provide a url as first argument");
